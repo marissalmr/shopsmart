@@ -5,7 +5,7 @@ users = []
 
 def menu():
      while True : 
-          print("Menu : /n 1. Pour vous inscrire /n 2. Pour vous connecter /n")
+          print("Menu : \n 1. Pour vous inscrire \n 2. Pour vous connecter \n")
           choix_user = int(input("Faites votre choix"))
           return choix_user
 
@@ -38,42 +38,44 @@ def inscription():
 
 def connexion():
     utilisateur_trouvé = None
+    mdp_trouvé = None
     while utilisateur_trouvé is None : 
         tentative_pseudo = input("Entrez votre pseudonyme")
         for utilisateurs in users : 
             if tentative_pseudo == utilisateurs.nom : #Car on accede au nom de l'objet utilisateur
                 utilisateur_trouvé = utilisateurs 
-            elif utilisateur_trouvé is None : 
+            else : 
                 print("Utilisateur introuvable veuillez réessayer")
                 tentative_pseudo 
+    mdp_stocké = None
+    
+    while mdp_trouvé == None : 
+        for utilisateurs in users : 
+            mdp_stocké = utilisateurs.mdp_hash
 
-    tentative_mdp = input("Entrez votre mot de passe")
-    verification = verifier_mdp(tentative_mdp)
-    for utilisateurs_mdp in users : 
-        if verification == utilisateurs_mdp.mdp_hash :
-            mdp_trouvé = utilisateurs_mdp
-        elif mdp_trouvé is None : 
+        tentative_mdp = input("Entrez votre mot de passe")
+        verification = verifier_mdp(tentative_mdp, mdp_stocké )
+        if verification is True : 
+            print("Vous etes co")
+        else : 
             print("Mot de passe incorrect, veuillez réessayer")
             tentative_mdp
 
-    while verification == False : 
-            verification = verifier_mdp(tentative_mdp)
-    return tentative_mdp
+   
 
-
-def verifier_mdp(tentative_mdp): #Obligé car on peut pas comparer un mdp hasher à un mdp normal 
-    mdp_hash = hash_mot_de_passe(connexion)
-    sel = mdp_hash[:32] #extraction du sel car c'est les 32 premier caractères
-    cle = mdp_hash[32:] #extraction de la clé = 32 dernier caractères
-    tentative_mdp = connexion() #Je récuppere la tentative de l'user
+def verifier_mdp(tentative_mdp, mdp_stocké): #Obligé car on peut pas comparer un mdp hasher à un mdp normal 
+    mdp_stocké = None
+    for utilisateur in users : 
+        mdp_stocké = utilisateur.mdp_hash
+    sel = mdp_stocké[:32] #extraction du sel car c'est les 32 premier caractères
+    cle = mdp_stocké[32:] #extraction de la clé = 32 dernier caractères
     nouvelle_cle =  hashlib.pbkdf2_hmac( #Je refais le meme hash, sur la tentative en utilisant le meme sel
         'sha256',
         tentative_mdp.encode('utf-8'),
         sel,
         100000
         )
-    if cle != nouvelle_cle :
-        print("Le mot de passe est incorret")
+   
     return nouvelle_cle == cle
 
 choix_user = int(input("Faites votre choix"))
