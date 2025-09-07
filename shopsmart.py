@@ -3,8 +3,6 @@ import hashlib
 import os
 users = []
 
-
-
 def menu():
      while True : 
           print("Menu : /n 1. Pour vous inscrire /n 2. Pour vous connecter /n")
@@ -19,8 +17,9 @@ def hash_mot_de_passe(mdp):
         salage, #Le sel généré avant
         100000 #Nb d'itérations pour ralentir le calcul du hachage, un attaquant peut tester milliards de mdp par seconde, la il doit faire 100000x plus de calculs par essai. 
     )
-    return salage + clé #Concaténation du sel et clé 
-
+    mdp_hash = salage + clé
+    
+    return mdp_hash #Concaténation du sel et clé 
 
 def inscription():
      
@@ -34,20 +33,38 @@ def inscription():
     mdp_hasher = hash_mot_de_passe(mdp)
     nouvel_utilisateur = Utilisateur(id, nom, email,role,mdp_hasher)
     users.append(nouvel_utilisateur)
-    return nouvel_utilisateur #Permet de pouvoir l'utiliser plus tard, pas concerné par la portée des variables
+    return nouvel_utilisateur, mdp #Permet de pouvoir l'utiliser plus tard, pas concerné par la portée des variables
 
 
 def connexion():
-    tentative_pseudo = input("Entrez votre pseudonyme")
+    utilisateur_trouvé = None
+    while utilisateur_trouvé is None : 
+        tentative_pseudo = input("Entrez votre pseudonyme")
+        for utilisateurs in users : 
+            if tentative_pseudo == utilisateurs.nom : #Car on accede au nom de l'objet utilisateur
+                utilisateur_trouvé = utilisateurs 
+            elif utilisateur_trouvé is None : 
+                print("Utilisateur introuvable veuillez réessayer")
+                tentative_pseudo 
+
     tentative_mdp = input("Entrez votre mot de passe")
     verification = verifier_mdp(tentative_mdp)
+    for utilisateurs_mdp in users : 
+        if verification == utilisateurs_mdp.mdp_hash :
+            mdp_trouvé = utilisateurs_mdp
+        elif mdp_trouvé is None : 
+            print("Mot de passe incorrect, veuillez réessayer")
+            tentative_mdp
+
     while verification == False : 
             verification = verifier_mdp(tentative_mdp)
+    return tentative_mdp
 
 
-def verifier_mdp(mdp_hasher): #Obligé car on peut pas comparer un mdp hasher à un mdp normal 
-    sel = mdp_hasher[:32] #extraction du sel car c'est les 32 premier caractères
-    cle = mdp_hasher[32:] #extraction de la clé = 32 dernier caractères
+def verifier_mdp(tentative_mdp): #Obligé car on peut pas comparer un mdp hasher à un mdp normal 
+    mdp_hash = hash_mot_de_passe(connexion)
+    sel = mdp_hash[:32] #extraction du sel car c'est les 32 premier caractères
+    cle = mdp_hash[32:] #extraction de la clé = 32 dernier caractères
     tentative_mdp = connexion() #Je récuppere la tentative de l'user
     nouvelle_cle =  hashlib.pbkdf2_hmac( #Je refais le meme hash, sur la tentative en utilisant le meme sel
         'sha256',
