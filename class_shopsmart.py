@@ -8,6 +8,17 @@ class Utilisateur:
         self.role = role
         self.mdp_hash = mdp_hash
 
+class Produit : 
+    id_produit = itertools.count()
+    def __init__(self, id, nom, categorie, prix, stock, notes, tags):
+        self.id = next(Produit.id_produit)
+        self.nom = nom 
+        self.categorie = categorie
+        self.prix = prix
+        self.stock = stock
+        self.notes = notes 
+        self.tags = tags
+
 
     
 

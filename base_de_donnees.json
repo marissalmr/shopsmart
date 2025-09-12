@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1,
+        "nom": "T-shirt Oversize",
+        "categorie": "mode",
+        "prix": 19.9,
+        "stock": 20,
+        "tags": [
+            "unisex",
+            "coton"
+        ]
+    },
+    {
+        "id": 2,
+        "nom": "Sneakers Nova",
+        "categorie": "mode",
+        "prix": 79.0,
+        "stock": 12,
+        "tags": [
+            "running"
+        ]
+    },
+    {
+        "id": 3,
+        "nom": "Mug \u00c9mail",
+        "categorie": "maison",
+        "prix": 8.5,
+        "stock": 50,
+        "tags": [
+            "caf\u00e9"
+        ]
+    },
+    {
+        "id": 4,
+        "nom": "Casque Studio",
+        "categorie": "tech",
+        "prix": 129.0,
+        "stock": 7,
+        "tags": [
+            "audio"
+        ]
+    },
+    {
+        "id": 5,
+        "nom": "Clavier M\u00e9canique",
+        "categorie": "tech",
+        "prix": 95.0,
+        "stock": 9,
+        "tags": [
+            "RGB"
+        ]
+    },
+    {
+        "id": 6,
+        "nom": "Lampe de Bureau",
+        "categorie": "maison",
+        "prix": 24.9,
+        "stock": 30,
+        "tags": [
+            "LED"
+        ]
+    }
+]
