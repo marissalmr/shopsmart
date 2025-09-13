@@ -131,6 +131,22 @@ def affichage_produit():
 
     if choix_page == 'oui' :
         print(liste_slice_page1[0:6])   
+    choix_page = input("Voulez vous voir la page suivante ? ")
+
+    liste_slice_page2 = liste_produits[11:19]
+    
+    if choix_page == 'oui':
+        print(liste_slice_page2[0:6])
+    choix_page = input("Voulez vous voir la page suivante ? ")
+
+    
+    liste_slice_page3 = liste_produits[17:25]
+
+    if choix_page=='oui' :
+        print(liste_slice_page3[0:6])
+
+
+
 
 
 choix_user = int(input("Faites votre choix"))
