@@ -59,5 +59,202 @@
         "tags": [
             "LED"
         ]
+    },
+    {
+        "id": 7,
+        "nom": "Jean Slim",
+        "categorie": "mode",
+        "prix": 49.9,
+        "stock": 25,
+        "tags": [
+            "denim",
+            "unisex"
+        ]
+    },
+    {
+        "id": 8,
+        "nom": "Pull Cachemire",
+        "categorie": "mode",
+        "prix": 119.0,
+        "stock": 15,
+        "tags": [
+            "hiver",
+            "premium"
+        ]
+    },
+    {
+        "id": 9,
+        "nom": "Sac \u00e0 Dos Urban",
+        "categorie": "mode",
+        "prix": 59.9,
+        "stock": 18,
+        "tags": [
+            "voyage",
+            "unisex"
+        ]
+    },
+    {
+        "id": 10,
+        "nom": "Chaussures de Ville",
+        "categorie": "mode",
+        "prix": 89.0,
+        "stock": 10,
+        "tags": [
+            "cuir"
+        ]
+    },
+    {
+        "id": 11,
+        "nom": "Bougie Parfum\u00e9e",
+        "categorie": "maison",
+        "prix": 14.5,
+        "stock": 40,
+        "tags": [
+            "d\u00e9coration",
+            "bien-\u00eatre"
+        ]
+    },
+    {
+        "id": 12,
+        "nom": "Plaid Doux",
+        "categorie": "maison",
+        "prix": 29.9,
+        "stock": 35,
+        "tags": [
+            "hiver",
+            "confort"
+        ]
+    },
+    {
+        "id": 13,
+        "nom": "Table Basse Bois",
+        "categorie": "maison",
+        "prix": 149.0,
+        "stock": 5,
+        "tags": [
+            "salon",
+            "design"
+        ]
+    },
+    {
+        "id": 14,
+        "nom": "Oreiller M\u00e9moire",
+        "categorie": "maison",
+        "prix": 39.9,
+        "stock": 22,
+        "tags": [
+            "sommeil",
+            "confort"
+        ]
+    },
+    {
+        "id": 15,
+        "nom": "Mixeur Blender",
+        "categorie": "maison",
+        "prix": 69.9,
+        "stock": 14,
+        "tags": [
+            "cuisine",
+            "\u00e9lectro"
+        ]
+    },
+    {
+        "id": 16,
+        "nom": "Smartphone Alpha",
+        "categorie": "tech",
+        "prix": 699.0,
+        "stock": 8,
+        "tags": [
+            "android",
+            "5G"
+        ]
+    },
+    {
+        "id": 17,
+        "nom": "Tablette Orion",
+        "categorie": "tech",
+        "prix": 349.0,
+        "stock": 11,
+        "tags": [
+            "android",
+            "wifi"
+        ]
+    },
+    {
+        "id": 18,
+        "nom": "Souris Gaming",
+        "categorie": "tech",
+        "prix": 49.9,
+        "stock": 26,
+        "tags": [
+            "RGB",
+            "ergonomique"
+        ]
+    },
+    {
+        "id": 19,
+        "nom": "\u00c9cran 27 pouces",
+        "categorie": "tech",
+        "prix": 229.0,
+        "stock": 13,
+        "tags": [
+            "fullHD",
+            "gaming"
+        ]
+    },
+    {
+        "id": 20,
+        "nom": "Enceinte Bluetooth",
+        "categorie": "tech",
+        "prix": 59.9,
+        "stock": 21,
+        "tags": [
+            "portable",
+            "audio"
+        ]
+    },
+    {
+        "id": 21,
+        "nom": "Veste Cuir",
+        "categorie": "mode",
+        "prix": 199.0,
+        "stock": 6,
+        "tags": [
+            "cuir",
+            "premium"
+        ]
+    },
+    {
+        "id": 22,
+        "nom": "Robe \u00c9t\u00e9",
+        "categorie": "mode",
+        "prix": 39.0,
+        "stock": 28,
+        "tags": [
+            "l\u00e9ger",
+            "femme"
+        ]
+    },
+    {
+        "id": 23,
+        "nom": "Set de Verres",
+        "categorie": "maison",
+        "prix": 22.0,
+        "stock": 32,
+        "tags": [
+            "verrerie",
+            "cuisine"
+        ]
+    },
+    {
+        "id": 24,
+        "nom": "Aspirateur Compact",
+        "categorie": "maison",
+        "prix": 129.0,
+        "stock": 9,
+        "tags": [
+            "m\u00e9nage",
+            "\u00e9lectro"
+        ]
     }
 ]

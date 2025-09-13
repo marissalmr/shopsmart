@@ -3,7 +3,7 @@ from class_shopsmart import Produit
 import hashlib
 import os
 import json 
-
+import itertools
 
 users = []
 
@@ -83,26 +83,54 @@ def verifier_mdp(tentative_mdp, mdp_stocké): #Obligé car on peut pas comparer 
     return nouvelle_cle == cle
 
 
-
-liste_produits = [
+page = 0
+liste_produits = produits = [
     {"id": 1, "nom": "T-shirt Oversize", "categorie": "mode", "prix": 19.90, "stock": 20, "tags": ["unisex","coton"]},
     {"id": 2, "nom": "Sneakers Nova", "categorie": "mode", "prix": 79.00, "stock": 12, "tags": ["running"]},
     {"id": 3, "nom": "Mug Émail", "categorie": "maison", "prix": 8.50, "stock": 50, "tags": ["café"]},
     {"id": 4, "nom": "Casque Studio", "categorie": "tech", "prix": 129.00, "stock": 7, "tags": ["audio"]},
     {"id": 5, "nom": "Clavier Mécanique", "categorie": "tech", "prix": 95.00, "stock": 9, "tags": ["RGB"]},
-    {"id": 6, "nom": "Lampe de Bureau", "categorie": "maison", "prix": 24.90, "stock": 30, "tags": ["LED"]}
+    {"id": 6, "nom": "Lampe de Bureau", "categorie": "maison", "prix": 24.90, "stock": 30, "tags": ["LED"]},
+    {"id": 7, "nom": "Jean Slim", "categorie": "mode", "prix": 49.90, "stock": 25, "tags": ["denim","unisex"]},
+    {"id": 8, "nom": "Pull Cachemire", "categorie": "mode", "prix": 119.00, "stock": 15, "tags": ["hiver","premium"]},
+    {"id": 9, "nom": "Sac à Dos Urban", "categorie": "mode", "prix": 59.90, "stock": 18, "tags": ["voyage","unisex"]},
+    {"id": 10, "nom": "Chaussures de Ville", "categorie": "mode", "prix": 89.00, "stock": 10, "tags": ["cuir"]},
+    {"id": 11, "nom": "Bougie Parfumée", "categorie": "maison", "prix": 14.50, "stock": 40, "tags": ["décoration","bien-être"]},
+    {"id": 12, "nom": "Plaid Doux", "categorie": "maison", "prix": 29.90, "stock": 35, "tags": ["hiver","confort"]},
+    {"id": 13, "nom": "Table Basse Bois", "categorie": "maison", "prix": 149.00, "stock": 5, "tags": ["salon","design"]},
+    {"id": 14, "nom": "Oreiller Mémoire", "categorie": "maison", "prix": 39.90, "stock": 22, "tags": ["sommeil","confort"]},
+    {"id": 15, "nom": "Mixeur Blender", "categorie": "maison", "prix": 69.90, "stock": 14, "tags": ["cuisine","électro"]},
+    {"id": 16, "nom": "Smartphone Alpha", "categorie": "tech", "prix": 699.00, "stock": 8, "tags": ["android","5G"]},
+    {"id": 17, "nom": "Tablette Orion", "categorie": "tech", "prix": 349.00, "stock": 11, "tags": ["android","wifi"]},
+    {"id": 18, "nom": "Souris Gaming", "categorie": "tech", "prix": 49.90, "stock": 26, "tags": ["RGB","ergonomique"]},
+    {"id": 19, "nom": "Écran 27 pouces", "categorie": "tech", "prix": 229.00, "stock": 13, "tags": ["fullHD","gaming"]},
+    {"id": 20, "nom": "Enceinte Bluetooth", "categorie": "tech", "prix": 59.90, "stock": 21, "tags": ["portable","audio"]},
+    {"id": 21, "nom": "Veste Cuir", "categorie": "mode", "prix": 199.00, "stock": 6, "tags": ["cuir","premium"]},
+    {"id": 22, "nom": "Robe Été", "categorie": "mode", "prix": 39.00, "stock": 28, "tags": ["léger","femme"]},
+    {"id": 23, "nom": "Set de Verres", "categorie": "maison", "prix": 22.00, "stock": 32, "tags": ["verrerie","cuisine"]},
+    {"id": 24, "nom": "Aspirateur Compact", "categorie": "maison", "prix": 129.00, "stock": 9, "tags": ["ménage","électro"]}
 ]
+
+
 with open('base_de_donnees.json', 'w') as produits : 
     json.dump(liste_produits, produits, indent=4 )
     
 with open('base_de_donnees.json', 'r') as product : 
     data_charger = json.load(product)
+    
 
 
 def affichage_produit():
-    choix_produit = input("Choisisez ce que vous voulez voir du produit")
+
     for produit in liste_produits:
-        print(produit)
+        if produit['id']<7:
+            print(produit['id'], produit['nom'], produit['prix'])   
+    choix_page = input("Voulez vous voir la page suivante ? ")
+
+    liste_slice_page1 = liste_produits[5:12]
+
+    if choix_page == 'oui' :
+        print(liste_slice_page1[0:6])   
 
 
 choix_user = int(input("Faites votre choix"))
