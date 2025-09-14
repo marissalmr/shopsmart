@@ -6,6 +6,7 @@ import json
 import itertools
 
 users = []
+produits_liste = []
 
 def menu():
      while True : 
@@ -83,7 +84,6 @@ def verifier_mdp(tentative_mdp, mdp_stocké): #Obligé car on peut pas comparer 
     return nouvelle_cle == cle
 
 
-page = 0
 liste_produits = produits = [
     {"id": 1, "nom": "T-shirt Oversize", "categorie": "mode", "prix": 19.90, "stock": 20, "tags": ["unisex","coton"]},
     {"id": 2, "nom": "Sneakers Nova", "categorie": "mode", "prix": 79.00, "stock": 12, "tags": ["running"]},
@@ -110,6 +110,17 @@ liste_produits = produits = [
     {"id": 23, "nom": "Set de Verres", "categorie": "maison", "prix": 22.00, "stock": 32, "tags": ["verrerie","cuisine"]},
     {"id": 24, "nom": "Aspirateur Compact", "categorie": "maison", "prix": 129.00, "stock": 9, "tags": ["ménage","électro"]}
 ]
+for produits in liste_produits:
+    product_classe = Produit(
+        id = ["id"],
+        nom = ["nom"],
+        categorie = ["categorie"],
+        prix = ["prix"],
+        stock = ["stock"],
+        tags = ["tags"],
+    )
+produits_liste.append(product_classe)
+
 
 
 with open('base_de_donnees.json', 'w') as produits : 
@@ -168,8 +179,7 @@ def filtre_categorie():
             if choix_page_cat == 'tech': 
                 if categorie['categorie'] == 'tech':
                     print(categorie['id'], categorie['nom'], categorie['prix'])
-            
-
+    menu()
 
 
 choix_user = int(input("Faites votre choix"))

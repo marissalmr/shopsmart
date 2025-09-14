@@ -10,15 +10,19 @@ class Utilisateur:
 
 class Produit : 
     id_produit = itertools.count()
-    def __init__(self, id, nom, categorie, prix, stock, notes, tags):
+    def __init__(self, id, nom, categorie, prix, stock, tags):
         self.id = next(Produit.id_produit)
         self.nom = nom 
         self.categorie = categorie
         self.prix = prix
         self.stock = stock
-        self.notes = notes 
         self.tags = tags
 
-
+class Panier : 
+    def __init__(self, articles, totaux, ajout, retrait):
+        self.articles = articles 
+        self.totaux = totaux
+        self.ajout = ajout
+        self.retrait = retrait 
     
 
