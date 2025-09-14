@@ -127,23 +127,27 @@ def affichage_produit():
             print(produit['id'], produit['nom'], produit['prix'])   
     choix_page = input("Voulez vous voir la page suivante ? ")
 
-    liste_slice_page1 = liste_produits[5:12]
+    liste_slice_page1 = liste_produits[6:12]
 
     if choix_page == 'oui' :
-        print(liste_slice_page1[0:6])   
+        for produit in liste_slice_page1:
+            print(produit['id'], produit['nom'], produit['prix'])   
     choix_page = input("Voulez vous voir la page suivante ? ")
 
-    liste_slice_page2 = liste_produits[11:19]
+    liste_slice_page2 = liste_produits[12:18]
     
     if choix_page == 'oui':
-        print(liste_slice_page2[0:6])
+        for produit in liste_slice_page2:
+            print(produit['id'], produit['nom'], produit['prix'])   
     choix_page = input("Voulez vous voir la page suivante ? ")
 
     
-    liste_slice_page3 = liste_produits[17:25]
+    liste_slice_page3 = liste_produits[18:26]
 
     if choix_page=='oui' :
-        print(liste_slice_page3[0:6])
+        for produit in liste_slice_page3:
+            print(produit['id'], produit['nom'], produit['prix'])   
+
 
 
 
