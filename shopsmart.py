@@ -121,11 +121,13 @@ with open('base_de_donnees.json', 'r') as product :
 
 
 def affichage_produit():
-
     for produit in liste_produits:
         if produit['id']<7:
             print(produit['id'], produit['nom'], produit['prix'])   
+    
     choix_page = input("Voulez vous voir la page suivante ? ")
+    if choix_page == 'non':
+        filtre_categorie()
 
     liste_slice_page1 = liste_produits[6:12]
 
@@ -147,9 +149,26 @@ def affichage_produit():
     if choix_page=='oui' :
         for produit in liste_slice_page3:
             print(produit['id'], produit['nom'], produit['prix'])   
+    return choix_page
 
 
-
+def filtre_categorie():
+    choix_page_cat = input("Voulez vous filtrer les produits par leurs catégorie ? ")
+    if choix_page_cat == 'oui':
+            print("mode \n maison \n tech")
+    choix_page_cat = input("Choisisez par quel catégorie voulez vous filtrer")
+    
+    for categorie in liste_produits :
+            if choix_page_cat == 'mode':
+                if categorie['categorie'] == 'mode':
+                    print(categorie['id'], categorie['nom'], categorie['prix'])
+            if choix_page_cat == 'maison':
+                if categorie['categorie'] == 'maison':
+                    print(categorie['id'], categorie['nom'], categorie['prix'])
+            if choix_page_cat == 'tech': 
+                if categorie['categorie'] == 'tech':
+                    print(categorie['id'], categorie['nom'], categorie['prix'])
+            
 
 
 
